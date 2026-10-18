@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Install Playwright browser
-        run: npx playwright install --with-deps edge
+        run: npx playwright install --with-deps msedge
 
       - name: Start the shop (WordPress + database)
         run: docker compose up -d --wait
@@ -40,7 +40,7 @@ jobs:
           echo "Shop did not become ready"; exit 1
 
       - name: Run Playwright tests
-        run: npx playwright test --project=chromium --reporter=list,html
+        run: npx playwright test --project=edge --reporter=list,html
         env:
           BASE_URL: http://localhost:8080
           PLAYWRIGHT_HTML_OPEN: never

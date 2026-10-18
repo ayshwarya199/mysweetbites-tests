@@ -30,9 +30,8 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     
-  baseURL: 'http://mysweetbites.local/',
-  
-  ignoreHTTPSErrors: true,
+  baseURL: process.env.BASE_URL ?? 'http://mysweetbites.local',
+    ignoreHTTPSErrors: true,
   trace: 'on-first-retry',
 },
     
