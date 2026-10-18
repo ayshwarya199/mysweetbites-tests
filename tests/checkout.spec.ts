@@ -31,7 +31,7 @@ async function addFirstProductToCart(page: Page) {
     await dropdowns.nth(i).selectOption({ index: 1 });
   }
 
-  await page.getByRole('button', { name: /add to cart/i }).click();
+  await page.locator('button.single_add_to_cart_button').click();
   await expect(page.locator('.woocommerce-message')).toBeVisible();
 }
 
@@ -89,7 +89,7 @@ if (count > 0) {
     }
     
     await page.getByRole('spinbutton', { name: /quantity/i }).fill('20');
-    await page.getByRole('button', { name: /add to cart/i }).click();
+    await page.locator('button.single_add_to_cart_button').click();
      await expect(page.getByRole('link', { name: /20 items/ })).toBeVisible();
     await expect(page.locator('.woocommerce-message')).toBeVisible();
 

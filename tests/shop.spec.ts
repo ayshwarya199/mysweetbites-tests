@@ -29,7 +29,7 @@ test('add a product to the cart', async ({ page }) => {
     await dropdowns.nth(i).selectOption({ index: 1 });
   }
 
-  await page.getByRole('button', { name: /add to cart/i }).click();
+  await page.locator('button.single_add_to_cart_button').click();
   await expect(page.locator('.woocommerce-message')).toBeVisible();
   await page.goto('/cart');
     await expect(
